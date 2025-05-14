@@ -1,10 +1,11 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  /* font-family: system-ui, Avenir, Helvetica, Arial, sans-serif; */
+  font-family: "Inter", sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 1);
   background-color: #242424;
 
   font-synthesis: none;
@@ -14,7 +15,7 @@
 
   /* Переменные для тёмной темы */
   --bg-color: #242424;
-  --text-color: rgba(255, 255, 255, 0.87);
+  --text-color: rgba(255, 255, 255, 1);
   --button-bg-color: #fff;
   --button-text-color: #000;
 }
@@ -31,9 +32,9 @@ a:hover {
 body {
   margin: 0;
   display: flex;
-  place-items: center;
+  /* place-items: center; */
   min-width: 320px;
-  min-height: 100vh;
+  /* min-height: 100vh; */
 }
 
 h1 {
@@ -86,7 +87,7 @@ button:focus-visible {
 /* Класс для тёмной темы */
 body.dark-theme {
   --bg-color: #242424;
-  --text-color: rgba(255, 255, 255, 0.87);
+  --text-color: rgba(255, 255, 255, 1);
   --button-bg-color: #fff;
   --button-text-color: #000;
 }

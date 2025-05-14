@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import styles from '../styles/HeroSection.module.css';
-import { Header } from '../components';
+// import { Header } from '../components';
 import { Button } from '../components';
 
 const HeroSection = () => {
@@ -19,7 +19,7 @@ const HeroSection = () => {
 
     return (
         <section className={styles.heroSection}>
-            <Header />
+            {/* <Header /> */}
             <h1 className={styles.title}>
                 The best things happen <span className={styles.highlight}>Backstage</span>
             </h1>

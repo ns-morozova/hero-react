@@ -1,33 +1,75 @@
 .header {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
+    padding: 20px 0;
     background-color: transparent;
-  }
+    position: relative;
+}
   
-  .navList {
+.mobileMenuButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.burgerIcon,
+.crossIcon {
+    font-size: 36px;
+    color: var(--text-color);
+}
+
+.navMenu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 9;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+}
+
+.navMenu.active {
+    display: flex;
+}
+
+.navList {
     list-style: none;
     display: flex;
+    flex-direction: column;
     gap: 20px;
-  }
-  
-  .navList li a {
+    text-align: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navList li a {
     text-decoration: none;
-    color: var(--text-color);
-    font-size: 16px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 20px;
+    font-weight: 500;
     transition: color 0.3s ease;
-  }
-  
-  .navList li a:hover {
+}
+
+.navList li a:hover {
     color: var(--button-hover-text-color);
-  }
-  
-  .buttonWrapper {
-    position: relative;
-  }
-  
-  .startProjectButton {
+}
+
+.buttonWrapper {
+    flex-shrink: 0;
+}
+
+.startProjectButton {
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
     border: none;
@@ -36,9 +78,38 @@
     font-size: 16px;
     cursor: pointer;
     transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  
-  .startProjectButton:hover {
+}
+
+.startProjectButton:hover {
     background-color: var(--button-hover-bg-color);
     color: var(--button-hover-text-color);
-  }
+}
+
+/* Адаптивность для десктопов */
+@media (min-width: 768px) {
+    .mobileMenuButton {
+        display: none;
+    }
+
+    .header {
+        display: flex;
+        flex-direction: row-reverse;
+    }
+
+    .navMenu {
+        display: flex;
+        position: static;
+        background-color: transparent;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .navList {
+        flex-direction: row;
+    }
+
+    .navList li a {
+        font-size: 16px;
+    }
+}
