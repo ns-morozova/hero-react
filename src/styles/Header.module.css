@@ -7,6 +7,17 @@
     background-color: transparent;
     position: relative;
 }
+
+.navBlock {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.themeSwitcher {
+    display: flex;
+    cursor: pointer;
+}
   
 .mobileMenuButton {
     display: flex;
@@ -17,10 +28,20 @@
     z-index: 10;
 }
 
-.burgerIcon,
-.crossIcon {
-    font-size: 36px;
+.sunIcon, .moonIcon {
+    font-size: 28px;
+}
+
+.burgerIcon, .crossIcon {
+    font-size: 32px;
+}
+
+.burgerIcon {
     color: var(--text-color);
+}
+
+.crossIcon {
+    color: #fff;
 }
 
 .navMenu {
@@ -35,7 +56,6 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    transition: opacity 0.3s ease;
 }
 
 .navMenu.active {
@@ -55,14 +75,14 @@
 
 .navList li a {
     text-decoration: none;
-    color: rgba(255, 255, 255, 0.75);
+    color: var(--link-color);
     font-size: 20px;
     font-weight: 500;
-    transition: color 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 .navList li a:hover {
-    color: var(--button-hover-text-color);
+    color: #ee4530;
 }
 
 .buttonWrapper {
@@ -75,9 +95,9 @@
     border: none;
     padding: 10px 20px;
     border-radius: 20px;
-    font-size: 16px;
+    font-family: "Source Code Pro", monospace;
+    font-size: 9px;
     cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .startProjectButton:hover {
@@ -85,7 +105,7 @@
     color: var(--button-hover-text-color);
 }
 
-/* Адаптивность для десктопов */
+/* Адаптивность */
 @media (min-width: 768px) {
     .mobileMenuButton {
         display: none;
@@ -94,6 +114,11 @@
     .header {
         display: flex;
         flex-direction: row-reverse;
+    }
+
+    .navBlock {
+        flex-direction: row-reverse;
+        z-index: 10;
     }
 
     .navMenu {
@@ -111,5 +136,9 @@
 
     .navList li a {
         font-size: 16px;
+    }
+
+    .startProjectButton {
+        font-size: 12px;
     }
 }

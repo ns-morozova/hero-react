@@ -1,22 +1,20 @@
 .heroSection {
     display: flex;
     flex-direction: column;
-    /* align-items: center;
-    justify-content: center;
-    text-align: center; */
 }
   
 .title {
-    font-size: 30px;
-    /* line-height: 1.2; */
+    font-size: 36px;
     font-weight: 500;
     color: var(--text-color);
     text-align: start;
 }
 
 .highlight {
-    color: #ff4500;
-    font-family: "Pixelify Sans", sans-serif;
+    color: #ee4530;
+    font-family: "Pixel Operator", monospace;
+    font-weight: 700;
+    font-size: 1.2em;
 }
 
 .buttonGroup {
@@ -41,10 +39,10 @@
     color: var(--button-hover-text-color);
 }
 
-/* Адаптивность для десктопов */
+/* Адаптивность */
 @media (min-width: 768px) {
     .title {
-        font-size: 48px;
+        font-size: 56px;
     }
 
     .buttonGroup {

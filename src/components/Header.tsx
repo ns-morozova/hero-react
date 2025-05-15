@@ -1,6 +1,7 @@
 // src/components/Header.tsx
 import { useState } from 'react';
 import styles from '../styles/Header.module.css';
+import { RiSunFill, RiMoonFill } from "react-icons/ri";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 
@@ -14,29 +15,51 @@ const menuItems = [
 
 const Header = () => {
     const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+    const [isDarkMode, setIsDarkMode] = useState(true);
 
     const toggleMobileMenu = () => {
         setIsMobileMenuOpen(!isMobileMenuOpen);
     };
 
+    const toggleTheme = () => {
+        const newIsDarkMode = !isDarkMode;
+
+        setIsDarkMode(newIsDarkMode);
+
+        document.body.classList.remove('dark-theme', 'light-theme');
+
+        if (newIsDarkMode) {
+            document.body.classList.add('dark-theme');
+        } else {
+            document.body.classList.add('light-theme');
+        }
+      };
+
     return (
         <header className={styles.header}>
-            {/* Кнопка "Start a project" */}
-            <div className={styles.buttonWrapper}>
-                <button className={styles.startProjectButton}>Start a project</button>
+            
+
+            <div className={styles.navBlock}>
+                <div className={styles.buttonWrapper}>
+                    <button className={styles.startProjectButton}>Start a project</button>
+                </div>
+
+                <div className={styles.themeSwitcher} onClick={toggleTheme}>
+                    {isDarkMode ? (
+                        <RiSunFill className={styles.sunIcon} />
+                    ) : (
+                        <RiMoonFill className={styles.moonIcon} />
+                    )}
+                </div>
             </div>
 
-            {/* Бургер для мобильной версии */}
             <div className={styles.mobileMenuButton} onClick={toggleMobileMenu}>
                 {isMobileMenuOpen ? (
-                    // <span className={styles.crossIcon}>×</span>
                     <IoCloseOutline className={styles.crossIcon} />
                 ) : (
-                    // <span className={styles.burgerIcon}>☰</span>
                     <RxHamburgerMenu className={styles.burgerIcon} />
                 )}
             </div>
-
             
 
             {/* Меню для десктопов */}

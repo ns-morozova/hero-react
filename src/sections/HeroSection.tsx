@@ -19,9 +19,8 @@ const HeroSection = () => {
 
     return (
         <section className={styles.heroSection}>
-            {/* <Header /> */}
             <h1 className={styles.title}>
-                The best things happen <span className={styles.highlight}>Backstage</span>
+                The best things <br></br> happen <span className={styles.highlight}>Backstage</span>
             </h1>
             <div className={styles.buttonGroup}>
                 {buttonData.map((button) => (
