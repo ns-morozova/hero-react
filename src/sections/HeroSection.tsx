@@ -1,6 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import styles from '../styles/HeroSection.module.css';
-// import { Header } from '../components';
 import { Button } from '../components';
 
 const HeroSection = () => {
@@ -15,23 +14,35 @@ const HeroSection = () => {
 
     const handleButtonClick = (id: number) => {
         setSelectedButtonId(id);
+        console.log(`Сейчас выбрана кнопка №${id}`);
     };
+
+    const highlightRef = useRef<HTMLSpanElement>(null);
+
+    useEffect(() => {
+        if (highlightRef.current) {
+            highlightRef.current.classList.add(`${styles.active}`);
+        }
+
+        console.log(`Сейчас выбрана кнопка №${selectedButtonId}`);
+    }, []);
 
     return (
         <section className={styles.heroSection}>
             <h1 className={styles.title}>
-                The best things <br></br> happen <span className={styles.highlight}>Backstage</span>
+                The best things <br></br> happen <span ref={highlightRef} className={styles.highlight}>Backstage</span>
             </h1>
-            <div className={styles.buttonGroup}>
+            <nav className={styles.buttonGroup} aria-label="Category filters">
                 {buttonData.map((button) => (
                     <Button
                         key={button.id}
                         text={button.text}
                         isSelected={button.id === selectedButtonId}
                         onClick={() => handleButtonClick(button.id)}
+                        aria-label={`Filter by ${button.text}`}
                     />
                 ))}
-            </div>
+            </nav>
         </section>
     );
 };

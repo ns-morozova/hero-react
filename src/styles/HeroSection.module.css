@@ -15,11 +15,17 @@
     font-family: "Pixel Operator", monospace;
     font-weight: 700;
     font-size: 1.2em;
+    clip-path: inset(0 100% 0 0);
+    transition: clip-path 2s ease;
+}
+
+.highlight.active {
+    clip-path: inset(0 0 0 0);
 }
 
 .buttonGroup {
     display: flex;
-    gap: 8px;
+    gap: 6px;
     margin-top: 40px;
 }
 
@@ -39,13 +45,18 @@
     color: var(--button-hover-text-color);
 }
 
-/* Адаптивность */
-@media (min-width: 768px) {
+@media (min-width: 640px) {
     .title {
         font-size: 56px;
     }
+}
+
+@media (min-width: 768px) {
+    .title {
+        font-size: 72px;
+    }
 
     .buttonGroup {
-        gap: 10px;
+        gap: 8px;
     }
 }

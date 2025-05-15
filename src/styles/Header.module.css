@@ -28,25 +28,31 @@
     z-index: 10;
 }
 
-.sunIcon, .moonIcon {
-    font-size: 28px;
+.burgerIcon, .crossIcon, .sunIcon, .moonIcon {
+    font-size: 24px;
 }
 
-.burgerIcon, .crossIcon {
-    font-size: 32px;
-}
-
-.burgerIcon {
+.burgerIcon, .sunIcon, .moonIcon {
     color: var(--text-color);
+    transition: all 0.3s ease;
 }
 
 .crossIcon {
     color: #fff;
 }
 
+.burgerIcon:hover, .sunIcon:hover, .moonIcon:hover {
+    color: var(--button-hover-bg-color);
+}
+
+.arrowIcon {
+    transition: all 0.3s ease;
+}
+
 .navMenu {
     display: none;
     position: fixed;
+    overflow: hidden;
     top: 0;
     left: 0;
     width: 100%;
@@ -75,9 +81,10 @@
 
 .navList li a {
     text-decoration: none;
-    color: var(--link-color);
-    font-size: 20px;
+    color: #fff;
+    font-size: 18px;
     font-weight: 500;
+    white-space: nowrap;
     transition: all 0.3s ease;
 }
 
@@ -93,10 +100,14 @@
     background-color: var(--button-bg-color);
     color: var(--button-text-color);
     border: none;
-    padding: 10px 20px;
-    border-radius: 20px;
+    padding: 10px 16px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
     font-family: "Source Code Pro", monospace;
-    font-size: 9px;
+    font-size: 10px;
+    letter-spacing: -1px;
     cursor: pointer;
 }
 
@@ -105,7 +116,21 @@
     color: var(--button-hover-text-color);
 }
 
-/* Адаптивность */
+.startProjectButton:hover .arrowIcon {
+    transform: scale(1.5);
+}
+
+@media (min-width: 640px) {
+    .burgerIcon, .crossIcon, .sunIcon, .moonIcon {
+        font-size: 28px;
+    }
+
+    .startProjectButton {
+        font-size: 12px;
+        gap: 10px;
+    }
+}
+
 @media (min-width: 768px) {
     .mobileMenuButton {
         display: none;
@@ -118,6 +143,7 @@
 
     .navBlock {
         flex-direction: row-reverse;
+        gap: 16px;
         z-index: 10;
     }
 
@@ -131,14 +157,25 @@
     }
 
     .navList {
+        width: 70%;
         flex-direction: row;
+        justify-content: space-between;
+        gap: 0;
     }
 
     .navList li a {
-        font-size: 16px;
+        color: var(--link-color);
+        font-size: 12px;
+        font-weight: 600;
     }
 
     .startProjectButton {
-        font-size: 12px;
+        padding: 14px 20px;
+    }
+}
+
+@media (min-width: 992px) {
+    .navList {
+        width: 60%;
     }
 }

@@ -1,7 +1,7 @@
-// src/components/Header.tsx
 import { useState } from 'react';
 import styles from '../styles/Header.module.css';
 import { RiSunFill, RiMoonFill } from "react-icons/ri";
+import { MdArrowOutward } from "react-icons/md";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { IoCloseOutline } from "react-icons/io5";
 
@@ -37,14 +37,15 @@ const Header = () => {
 
     return (
         <header className={styles.header}>
-            
-
             <div className={styles.navBlock}>
                 <div className={styles.buttonWrapper}>
-                    <button className={styles.startProjectButton}>Start a project</button>
+                    <button className={styles.startProjectButton}>
+                        Start a project
+                        <MdArrowOutward className={styles.arrowIcon} />
+                    </button>
                 </div>
 
-                <div className={styles.themeSwitcher} onClick={toggleTheme}>
+                <div className={styles.themeSwitcher} onClick={toggleTheme} aria-label="Toggle theme">
                     {isDarkMode ? (
                         <RiSunFill className={styles.sunIcon} />
                     ) : (
@@ -61,7 +62,6 @@ const Header = () => {
                 )}
             </div>
             
-
             {/* Меню для десктопов */}
             <nav className={`${styles.navMenu} ${isMobileMenuOpen ? styles.active : ''}`}>
                 <ul className={styles.navList}>
