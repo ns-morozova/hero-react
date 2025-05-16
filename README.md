@@ -1,54 +1,34 @@
-# React + TypeScript + Vite
+## **Описание проекта**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Воссоздание hero-секции для страницы лендинга
 
-Currently, two official plugins are available:
+## **Инструкция по запуску**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Чтобы запустить проект локально, выполните следующие шаги:
 
-## Expanding the ESLint configuration
+1. **Склонируйте репозиторий:**
+   ```bash
+   git clone https://github.com/ns-morozova/hero-react.git 
+2. **Перейдите в папку проекта и установите зависимости:**
+   ```bash 
+   cd hero-react
+   npm install
+3. **Запустите проект:**
+   ```bash 
+   npm run dev
+   ```
+   
+   После запуска команды будет две ссылки:
+   - Local: локальная ссылка (для открытия на устройстве, где запущен проект)
+   - Network: сетевая ссылка (для тестирования на других устройствах в той же сети)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## **Что из бонусов реализовано**
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- Простое состояние для pill-кнопок: вывод в консоль, какая кнопка выбрана
+- Легкая анимация появления пиксельного слова
+- Переключение светлой/темной темы по иконке-кнопке
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## **Live-демо**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+Проект размещен на GitHub Pages:
+https://ns-morozova.github.io/hero-react/
